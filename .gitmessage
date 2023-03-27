@@ -1,0 +1,12 @@
+<type>: <description>
+
+<detailed message>: <detailed message>
+
+Supported change types:
+- feat: new functionality
+- fix: bug fix
+- docs: documentation changes
+- style: code formatting changes
+- refactor: code refactoring
+- test: adding or changing tests
+- chore: other non-code changes

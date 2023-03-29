@@ -23,9 +23,8 @@ A web application developed with Angular framework to search Github users and vi
 
 ##### Usage
     1. Enter a Github username in the search box
-    2. Click the "Search" button or press "Enter"
-    3. A list of Github users with matching usernames will be displayed
-    4. Click on a user to view their details
+    2. A list of Github users with matching usernames will be displayed
+    3. Click on a user to view their details
 
 ###### APIs
 This application uses Github's public search API to search for users by their username. 

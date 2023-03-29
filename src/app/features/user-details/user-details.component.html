@@ -1,0 +1,25 @@
+<div class="container-user-details">
+    <table  *ngIf="users$ | async as user" class="user-details-table">
+        <thead>
+            <tr>
+                <th>User Picture</th>
+                <th>Login</th>
+                <th>User ID</th>
+                <th>User Page</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="user-table-tr">
+                <td>
+                    <img class="user-img" [src]="user.selectedUser?.avatar_url" alt="">
+                </td>
+                <td>{{ user.selectedUser?.login }}</td>
+                <td>{{ user.selectedUser?.id }}</td>
+                <td>
+                    <a [href]="user.selectedUser?.html_url" target="_blank">{{ user.selectedUser?.html_url }}</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <button class="btn-return" (click)="returnUsersSearch()">Return</button>
+</div>

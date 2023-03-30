@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+
 import { GitHubUsers } from '../../shared/models/user.model'
 
 @Injectable({ providedIn: 'root' })

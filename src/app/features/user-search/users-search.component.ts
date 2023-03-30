@@ -6,7 +6,7 @@ import { debounceTime } from 'rxjs/operators';
 import { GitHubUser } from '../../shared/models/user.model';
 
 import { AppState } from 'src/app/store/app.state';
-import { getGitHubUsers, GitHubUsersState } from 'src/app/store/users/user.reducer';
+import { getGitHubUsers, GitHubUsersState, initialGitHubUsersState } from 'src/app/store/users/user.reducer';
 import * as fromGitHubUsersActions from '../../store/users/user.actions';
 
 @Component({
@@ -16,7 +16,7 @@ import * as fromGitHubUsersActions from '../../store/users/user.actions';
 })
 export class UserSearchComponent implements OnInit {
   githubUsers$ = this.store.select(getGitHubUsers);
-  githubUsers!: GitHubUsersState;
+  githubUsers: GitHubUsersState = initialGitHubUsersState;
   searchUserName = new FormControl('');
 
   constructor(private store: Store<AppState>, private router: Router) {
@@ -43,8 +43,10 @@ export class UserSearchComponent implements OnInit {
     let storedSearch = '';
 
     this.githubUsers$.subscribe(data => {
-      this.githubUsers = data;
-      storedSearch = data.storeUserSearch
+      if (data) {
+        this.githubUsers = data;
+        storedSearch = data.storeUserSearch
+      }
     });
 
     if (storedSearch != this.searchUserName.value && storedSearch != '') {

@@ -1,0 +1,16 @@
+<table class="users-table" *ngIf="githubUsers$ | async as gitHubUsers">
+    <thead *ngIf="gitHubUsers.items.length">
+        <tr>
+            <th>Image</th>
+            <th>User Name</th>
+            <th>Admin</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="user-table-tr" *ngFor="let user of gitHubUsers.items" (click)="viewUserDetails(user)">
+            <td><img class="user-img" [src]="user.avatar_url" alt=""></td>
+            <td>{{ user.login }}</td>
+            <td>{{ user.site_admin }}</td>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,5 @@
+<div class="container-users-search ">
+    <h1>Github User Search</h1>
+    <input type="search" placeholder="User Name..." class="users-search-input" [value]="searchValue$ | async" (input)="searchGitHubUsers($event)">
+    <app-user-list class="app-user-list"></app-user-list>
+</div>

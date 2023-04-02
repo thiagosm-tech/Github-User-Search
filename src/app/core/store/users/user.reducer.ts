@@ -1,10 +1,9 @@
 import { Action, createReducer, createSelector, on, createFeatureSelector } from '@ngrx/store';
-import { GitHubUser, GitHubUsers } from '../../shared/models/user.model';
+import { GitHubUser, GitHubUsers } from '../../entities/users.entity';
 import * as UserActions from './user.actions';
 
 export interface GitHubUsersState extends GitHubUsers {
   selectedUser: GitHubUser | null,
-  storeUserSearch: string
 }
 
 export const initialGitHubUsersState: GitHubUsersState = {
@@ -12,8 +11,12 @@ export const initialGitHubUsersState: GitHubUsersState = {
   incomplete_results: true,
   items: [],
   selectedUser: null,
-  storeUserSearch: ''
 }
+
+export const _searchReducer = createReducer(
+  '',
+  on(UserActions.updateSearchValue, (state, { searchValue }) => (searchValue))
+);
 
 export const _gitHubUsersReducer = createReducer(
   initialGitHubUsersState,
@@ -69,4 +72,17 @@ const getGitHubUsersFeatureState = createFeatureSelector<GitHubUsersState>(
 export const getGitHubUsers = createSelector(
   getGitHubUsersFeatureState,
   (state: GitHubUsersState) => state
+)
+
+export function searchReducer(state = '', action: Action) {
+  return _searchReducer(state, action);
+}
+
+const getSearchReducerFeatureState = createFeatureSelector<string>(
+  'searchUser'
+)
+
+export const searchUser = createSelector(
+  getSearchReducerFeatureState,
+  (state: string) => state
 )

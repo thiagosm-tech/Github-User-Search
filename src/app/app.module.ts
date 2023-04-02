@@ -7,7 +7,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { effects, reducers } from './store/app.state';
+import { effects, reducers } from './core/store/app.state';
 
 @NgModule({
   declarations: [

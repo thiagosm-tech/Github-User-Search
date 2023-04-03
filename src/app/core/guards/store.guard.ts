@@ -15,7 +15,7 @@ export class StoreGuard {
   constructor(
     private store: Store<AppState>,
     private router: Router
-  ) {}
+  ) { }
 
   canActivate(): Observable<boolean> {
     return this.store.select(state => state.gitHubUsers)

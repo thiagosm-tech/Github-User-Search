@@ -1,30 +1,42 @@
-// import { UserDetailsComponent } from './user-details.component';
-// import { Router } from '@angular/router';
-// import { Store } from '@ngrx/store';
-// import { AppState } from 'src/app/store/app.state';
-// import { getGitHubUsers } from 'src/app/store/users/user.reducer';
-// import { of } from 'rxjs';
-// import { ofType } from '@ngrx/effects';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { Router } from '@angular/router';
+import { Store, StoreModule } from '@ngrx/store';
+import { of } from 'rxjs';
+import { UserDetailsComponent } from './user-details.component';
 
-// describe('UserDetailsComponent', () => {
-//   let componente: UserDetailsComponent;
-//   let routerSpy: jasmine.SpyObj<Router>;
-//   let storeSpy: jasmine.SpyObj<Store<AppState>>;
+describe('UserDetailsComponent', () => {
+  let component: UserDetailsComponent;
+  let fixture: ComponentFixture<UserDetailsComponent>;
+  let mockStore: jasmine.SpyObj<Store<any>>;
+  let mockRouter: jasmine.SpyObj<Router>;
 
-//   beforeEach(() => {
-//     routerSpy = jasmine.createSpyObj('Router', ['navigate']);
-//     storeSpy = jasmine.createSpyObj('Store', ['select']);
-//     storeSpy.select.and.returnValue(of({ items: {} }));
+  beforeEach(() => {
+    mockStore = jasmine.createSpyObj('Store', ['select']);
+    mockRouter = jasmine.createSpyObj('Router', ['navigate']);
 
-//     componente = new UserDetailsComponent(storeSpy, routerSpy);
-//   });
+    TestBed.configureTestingModule({
+      declarations: [UserDetailsComponent],
+      imports: [ StoreModule.forRoot({}) ],
+      providers: [
+        { provide: Store, useValue: mockStore },
+        { provide: Router, useValue: mockRouter }
+      ]
+    }).compileComponents();
+  });
 
-//   it('deve criar o componente', () => {
-//     expect(componente).toBeTruthy();
-//   });
+  beforeEach(() => {
+    fixture = TestBed.createComponent(UserDetailsComponent);
+    component = fixture.componentInstance;
+    mockStore.select.and.returnValue(of([]));
+  });
 
-//   it('deve navegar para a página de resultados de busca', () => {
-//     componente.returnUsersSearch();
-//     expect(routerSpy.navigate).toHaveBeenCalledWith(['']);
-//   });
-// });
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+
+  it('should navigate to empty route when returnUsersSearch is called', () => {
+    component.returnUsersSearch();
+
+    expect(mockRouter.navigate).toHaveBeenCalledWith(['']);
+  });
+});

@@ -1,10 +1,9 @@
-
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 
-import { AppState } from '../store/app.state';
-import * as fromGitHubUsersActions from '../store/users/user.actions';
+import * as fromGitHubUsersActions from '../../features/github-users/store/users/user.actions';
 import { GitHubUser } from '../entities/users.entity';
+import { AppState } from 'src/app/features/github-users/store/app.state';
 
 @Injectable({
   providedIn: 'root'

@@ -4,8 +4,8 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 
-import { AppState } from '../store/app.state';
-import { GitHubUsersState } from '../store/users/user.reducer';
+import { AppState } from '../features/github-users/store/app.state';
+import { GitHubUsersState } from '../features/github-users/store/users/user.reducer';
 
 @Injectable({
   providedIn: 'root'

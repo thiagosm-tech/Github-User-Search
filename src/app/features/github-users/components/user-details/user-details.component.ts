@@ -2,8 +2,9 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 
-import { AppState } from '../../../../core/store/app.state';
-import { getGitHubUsers } from '../../../../core/store/users/user.reducer';
+import { getGitHubUsers } from '../../store/users/user.reducer';
+import { AppState } from '../../store/app.state';
+
 
 @Component({
   selector: 'app-user-details',

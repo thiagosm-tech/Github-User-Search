@@ -4,9 +4,9 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
 import { GitHubUser } from 'src/app/core/entities/users.entity';
-import { AppState } from 'src/app/core/store/app.state';
-import { getGitHubUsers, GitHubUsersState } from 'src/app/core/store/users/user.reducer';
 import { SearchUsersUseCase } from 'src/app/core/use-cases/search-users.use-case';
+import { AppState } from '../../store/app.state';
+import { GitHubUsersState, getGitHubUsers } from '../../store/users/user.reducer';
 
 @Component({
   selector: 'app-user-list',

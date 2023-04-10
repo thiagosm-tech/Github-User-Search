@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 
-import { AppState } from '../../../../core/store/app.state';
 import { SearchUsersUseCase } from 'src/app/core/use-cases/search-users.use-case';
+import { AppState } from '../../store/app.state';
 
 @Component({
   selector: 'app-user-search',

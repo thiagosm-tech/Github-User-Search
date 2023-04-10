@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { UserDetailsComponent } from './components/user-details/user-details.component';
-import { StoreGuard } from 'src/app/core/guards/store.guard';
 import { UserSearchComponent } from './components/user-search/users-search.component';
 
 const routes: Routes = [

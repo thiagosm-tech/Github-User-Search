@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { GitHubUsers, GitHubUser } from '../../entities/users.entity';
+import { GitHubUsers, GitHubUser } from '../../../../core/entities/users.entity';
 
 export const searchUsers = createAction('[User] Search Users', props<{ query: any }>());
 export const searchUsersSuccess = createAction('[User] Search Users Success', props<{ users: GitHubUsers }>());

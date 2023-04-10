@@ -4,8 +4,8 @@ import { Store } from '@ngrx/store';
 import { Observable, of } from 'rxjs';
 
 import { StoreGuard } from './store.guard';
-import { AppState } from '../store/app.state';
-import { GitHubUsersState } from '../store/users/user.reducer';
+import { AppState } from '../features/github-users/store/app.state';
+import { GitHubUsersState } from '../features/github-users/store/users/user.reducer';
 import { Router } from '@angular/router';
 
 describe('StoreGuard', () => {

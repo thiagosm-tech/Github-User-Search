@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 import { provideMockStore, MockStore } from '@ngrx/store/testing';
 
 import { SearchUsersUseCase } from './search-users.use-case';
-import * as fromGitHubUsersActions from '../store/users/user.actions';
+import * as fromGitHubUsersActions from '../../features/github-users/store/users/user.actions';
 import { GitHubUser } from '../entities/users.entity';
 
 describe('SearchUsersUseCase', () => {

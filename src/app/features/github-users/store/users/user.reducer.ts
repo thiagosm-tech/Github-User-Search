@@ -1,5 +1,5 @@
 import { Action, createReducer, createSelector, on, createFeatureSelector } from '@ngrx/store';
-import { GitHubUser, GitHubUsers } from '../../entities/users.entity';
+import { GitHubUser, GitHubUsers } from '../../../../core/entities/users.entity';
 import * as UserActions from './user.actions';
 
 export interface GitHubUsersState extends GitHubUsers {
